@@ -1,27 +1,35 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Sportarr</Name>
-  <Repository>sportarr/sportarr:latest</Repository>
-  <Registry>https://hub.docker.com/r/sportarr/sportarr</Registry>
-  <Network>bridge</Network>
-  <Shell>sh</Shell>
-  <Privileged>false</Privileged>
-  <Support>https://discord.gg/YjHVWGWjjG</Support>
-  <Project>https://sportarr.net</Project>
-  <Overview>Sportarr is a sports PVR for usenet and torrents. It monitors sports leagues and events across hundreds of sports worldwide, searches your indexers for releases, and handles downloading, file renaming, organization, and media server integration with Plex, Jellyfin, and Emby. Includes IPTV DVR recording, quality profiles with upgrades, multi-part event support for fighting sports, and notifications.</Overview>
-  <Category>Downloaders: MediaApp:Video</Category>
-  <WebUI>http://[IP]:[PORT:1867]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/templates/sportarr.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/Sportarr/Sportarr/main/Logo/512.png</Icon>
-  <ExtraParams/>
-  <PostArgs/>
-  <DonateText>Support the project</DonateText>
-  <DonateLink>https://opencollective.com/sportarr</DonateLink>
-  <Config Name="Web UI Port" Target="1867" Default="1867" Mode="tcp" Description="Port for the Sportarr web interface." Type="Port" Display="always" Required="true" Mask="false">1867</Config>
-  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/sportarr" Mode="rw" Description="Sportarr database and settings." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sportarr</Config>
-  <Config Name="Data" Target="/data" Default="/mnt/user/data" Mode="rw" Description="Media library root. Add your sports library as a root folder inside Sportarr under this mount." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User id the container runs as (99 = nobody)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group id the container runs as (100 = users)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
-  <Config Name="UMASK" Target="UMASK" Default="022" Mode="" Description="File permission mask for created files." Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
-  <Config Name="TZ" Target="TZ" Default="UTC" Mode="" Description="Timezone, e.g. America/New_York." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
+    <Name>Sportarr</Name>
+    <Beta>false</Beta>
+    <Category>Downloaders: MediaApp:Video</Category>
+    <Repository>sportarr/sportarr:latest</Repository>
+    <Registry>https://hub.docker.com/r/sportarr/sportarr</Registry>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <PrivilegedReq>false</PrivilegedReq>
+    <ExtraParams/>
+    <Shell>sh</Shell>
+    <GitHub>https://github.com/Sportarr/Sportarr</GitHub>
+    <ReadMe>https://github.com/Sportarr/Sportarr#readme</ReadMe>
+    <Support>https://discord.gg/YjHVWGWjjG</Support>
+    <Project>https://sportarr.net</Project>
+    <Overview>Sportarr is a sports PVR for Usenet and BitTorrent users. It monitors sports leagues and events across hundreds of sports worldwide (fighting sports, football, soccer, basketball, motorsports, and more), searches your indexers for releases, and will grab, sort, and rename them, upgrading quality automatically when a better format becomes available. Multi-part event support handles prelims and main cards for fighting sports, an IPTV DVR can record events straight from live streams, and dedicated metadata agents keep Plex, Jellyfin, and Emby libraries correctly identified. Subtitles via Bazarr, notifications via Discord, ntfy, Apprise, webhooks, or custom scripts.</Overview>
+    <WebUI>http://[IP]:[PORT:1867]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/templates/sportarr.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/images/sportarr.png</Icon>
+    <DonateText>Support Sportarr development</DonateText>
+    <DonateLink>https://opencollective.com/sportarr</DonateLink>
+    <Date>2026-07-27</Date>
+    <Changes>
+### 2026-07-27
+- Initial official template, published and maintained by the Sportarr project
+    </Changes>
+    <Config Name="Port: Web Interface" Target="1867" Default="1867" Mode="tcp" Description="This is the Web UI port for the application." Type="Port" Display="always" Required="true" Mask="false">1867</Config>
+    <Config Name="Path: /config" Target="/config" Default="/mnt/user/appdata/sportarr" Mode="rw" Description="This is the container path to your configuration files, e.g. database, settings, logs." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sportarr</Config>
+    <Config Name="Path: /data" Target="/data" Default="/mnt/user/data" Mode="rw" Description="This is the container path to your media library root. Add your sports library as a root folder inside Sportarr under this mount, and keep downloads under the same mount for hardlinked imports." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data</Config>
+    <Config Name="Variable: PUID" Target="PUID" Default="99" Mode="" Description="User ID for the running container (99 = nobody)." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+    <Config Name="Variable: PGID" Target="PGID" Default="100" Mode="" Description="Group ID for the running container (100 = users)." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+    <Config Name="Variable: UMASK" Target="UMASK" Default="022" Mode="" Description="UMASK for files created by the container." Type="Variable" Display="advanced" Required="true" Mask="false">022</Config>
+    <Config Name="Variable: TZ" Target="TZ" Default="UTC" Mode="" Description="Timezone, e.g. America/New_York. Keeps event air times and the calendar correct." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
 </Container>

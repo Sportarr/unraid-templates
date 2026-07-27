@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Maintainer>
+  <Icon>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/images/sportarr.png</Icon>
+  <Profile>
+    Official Unraid templates for Sportarr, published and maintained by the
+    Sportarr project. Sportarr is a sports PVR for Usenet and BitTorrent:
+    it monitors leagues and events across hundreds of sports, grabs and
+    organizes releases with automatic quality upgrades, records live events
+    from IPTV, and keeps Plex, Jellyfin, and Emby libraries correctly
+    identified through dedicated metadata agents.
+
+    Website: https://sportarr.net
+    Source: https://github.com/Sportarr/Sportarr
+    Support: https://discord.gg/YjHVWGWjjG
+  </Profile>
+  <WebPage>https://sportarr.net</WebPage>
+  <DonateLink>https://opencollective.com/sportarr</DonateLink>
+</Maintainer>
