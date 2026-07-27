@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Sportarr</Name>
+  <Repository>sportarr/sportarr:latest</Repository>
+  <Registry>https://hub.docker.com/r/sportarr/sportarr</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://discord.gg/YjHVWGWjjG</Support>
+  <Project>https://sportarr.net</Project>
+  <Overview>Sportarr is a sports PVR for usenet and torrents. It monitors sports leagues and events across hundreds of sports worldwide, searches your indexers for releases, and handles downloading, file renaming, organization, and media server integration with Plex, Jellyfin, and Emby. Includes IPTV DVR recording, quality profiles with upgrades, multi-part event support for fighting sports, and notifications.</Overview>
+  <Category>Downloaders: MediaApp:Video</Category>
+  <WebUI>http://[IP]:[PORT:1867]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/templates/sportarr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Sportarr/Sportarr/main/Logo/512.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DonateText>Support the project</DonateText>
+  <DonateLink>https://opencollective.com/sportarr</DonateLink>
+  <Config Name="Web UI Port" Target="1867" Default="1867" Mode="tcp" Description="Port for the Sportarr web interface." Type="Port" Display="always" Required="true" Mask="false">1867</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/sportarr" Mode="rw" Description="Sportarr database and settings." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sportarr</Config>
+  <Config Name="Data" Target="/data" Default="/mnt/user/data" Mode="rw" Description="Media library root. Add your sports library as a root folder inside Sportarr under this mount." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User id the container runs as (99 = nobody)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group id the container runs as (100 = users)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="UMASK" Target="UMASK" Default="022" Mode="" Description="File permission mask for created files." Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+  <Config Name="TZ" Target="TZ" Default="UTC" Mode="" Description="Timezone, e.g. America/New_York." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
+</Container>
