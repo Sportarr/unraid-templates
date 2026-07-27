@@ -50,8 +50,23 @@ Then create the container from the Sportarr template.
 | `TZ` | `UTC` | Timezone; keeps event air times and the calendar correct |
 | `Sportarr__Database__*` | sqlite | Optional PostgreSQL settings under "Show more settings": provider, host, port, name, username, password, or a full connection string. PostgreSQL is fresh-install only. Any `Sportarr__` variable can be read from a file via the `FILE__` prefix (Docker secrets) |
 
-## Support
+## Tags
 
+| Tag | Purpose |
+|---|---|
+| `latest` | Stable releases (recommended) |
+| `dev` | Rolling development builds |
+
+## Links
+
+- [Website](https://sportarr.net)
 - [Discord](https://discord.gg/YjHVWGWjjG)
-- [GitHub issues](https://github.com/Sportarr/Sportarr/issues)
+- [GitHub](https://github.com/Sportarr/Sportarr)
+- [Issues](https://github.com/Sportarr/Sportarr/issues)
 - [Documentation](https://github.com/Sportarr/Sportarr#readme)
+- [Docker Hub](https://hub.docker.com/r/sportarr/sportarr)
+- [Support the project](https://opencollective.com/sportarr)
+
+## License
+
+GPL-3.0, matching the [Sportarr application](https://github.com/Sportarr/Sportarr/blob/main/COPYRIGHT.md).

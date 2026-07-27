@@ -5,16 +5,27 @@
     <Category>Downloaders: MediaApp:Video</Category>
     <Repository>sportarr/sportarr:latest</Repository>
     <Registry>https://hub.docker.com/r/sportarr/sportarr</Registry>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>dev</Tag>
+        <TagDescription>Rolling development builds</TagDescription>
+    </Branch>
     <Network>bridge</Network>
     <Privileged>false</Privileged>
     <PrivilegedReq>false</PrivilegedReq>
     <ExtraParams/>
+    <PostArgs/>
     <Shell>sh</Shell>
     <GitHub>https://github.com/Sportarr/Sportarr</GitHub>
     <ReadMe>https://github.com/Sportarr/Sportarr#readme</ReadMe>
     <Support>https://discord.gg/YjHVWGWjjG</Support>
     <Project>https://sportarr.net</Project>
+    <ExtraSearchTerms>sports pvr dvr arr ufc nfl nba mlb nhl f1 formula1 soccer football motorsports thesportsdb</ExtraSearchTerms>
     <Overview>Sportarr is a sports PVR for Usenet and BitTorrent users. It monitors sports leagues and events across hundreds of sports worldwide (fighting sports, football, soccer, basketball, motorsports, and more), searches your indexers for releases, and will grab, sort, and rename them, upgrading quality automatically when a better format becomes available. Multi-part event support handles prelims and main cards for fighting sports, an IPTV DVR can record events straight from live streams, and dedicated metadata agents keep Plex, Jellyfin, and Emby libraries correctly identified. Subtitles via Bazarr, notifications via Discord, ntfy, Apprise, webhooks, or custom scripts.</Overview>
+    <Requires>SQLite works out of the box with zero database configuration. To use PostgreSQL instead (fresh installs only), click **Show more settings...** to reveal the database **Variables**.</Requires>
     <WebUI>http://[IP]:[PORT:1867]</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/templates/sportarr.xml</TemplateURL>
     <Icon>https://raw.githubusercontent.com/Sportarr/unraid-templates/main/images/sportarr.png</Icon>
@@ -24,6 +35,8 @@
     <Changes>
 ### 2026-07-27
 - Initial official template, published and maintained by the Sportarr project
+- Stable and development branch tags
+- Optional PostgreSQL variables under advanced settings
     </Changes>
     <Config Name="Port: Web Interface" Target="1867" Default="1867" Mode="tcp" Description="This is the Web UI port for the application." Type="Port" Display="always" Required="true" Mask="false">1867</Config>
     <Config Name="Path: /config" Target="/config" Default="/mnt/user/appdata/sportarr" Mode="rw" Description="This is the container path to your configuration files, e.g. database, settings, logs." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sportarr</Config>
@@ -31,6 +44,7 @@
     <Config Name="Variable: PUID" Target="PUID" Default="99" Mode="" Description="User ID for the running container (99 = nobody)." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
     <Config Name="Variable: PGID" Target="PGID" Default="100" Mode="" Description="Group ID for the running container (100 = users)." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
     <Config Name="Variable: UMASK" Target="UMASK" Default="022" Mode="" Description="UMASK for files created by the container." Type="Variable" Display="advanced" Required="true" Mask="false">022</Config>
+    <Config Name="Variable: TZ" Target="TZ" Default="UTC" Mode="" Description="Timezone, e.g. America/New_York. Keeps event air times and the calendar correct." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
     <Config Name="Variable: Sportarr__Database__Provider" Target="Sportarr__Database__Provider" Default="sqlite" Mode="" Description="Database provider: sqlite (default, zero config) or postgres. PostgreSQL is for fresh installs only; there is no SQLite to Postgres migration path." Type="Variable" Display="advanced" Required="false" Mask="false">sqlite</Config>
     <Config Name="Variable: Sportarr__Database__Host" Target="Sportarr__Database__Host" Default="" Mode="" Description="PostgreSQL server hostname. Only used when the provider is postgres." Type="Variable" Display="advanced" Required="false" Mask="false"/>
     <Config Name="Variable: Sportarr__Database__Port" Target="Sportarr__Database__Port" Default="5432" Mode="" Description="PostgreSQL port. Only used when the provider is postgres." Type="Variable" Display="advanced" Required="false" Mask="false">5432</Config>
@@ -38,5 +52,4 @@
     <Config Name="Variable: Sportarr__Database__Username" Target="Sportarr__Database__Username" Default="" Mode="" Description="PostgreSQL user. Only used when the provider is postgres." Type="Variable" Display="advanced" Required="false" Mask="false"/>
     <Config Name="Variable: Sportarr__Database__Password" Target="Sportarr__Database__Password" Default="" Mode="" Description="PostgreSQL password. Only used when the provider is postgres. Any Sportarr__ variable can instead be read from a file by prefixing it with FILE__ and pointing the value at the file path (Docker secrets)." Type="Variable" Display="advanced" Required="false" Mask="true"/>
     <Config Name="Variable: Sportarr__Database__ConnectionString" Target="Sportarr__Database__ConnectionString" Default="" Mode="" Description="Full PostgreSQL connection string; overrides the individual database fields above when set." Type="Variable" Display="advanced" Required="false" Mask="true"/>
-    <Config Name="Variable: TZ" Target="TZ" Default="UTC" Mode="" Description="Timezone, e.g. America/New_York. Keeps event air times and the calendar correct." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
 </Container>
