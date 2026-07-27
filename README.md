@@ -48,6 +48,7 @@ Then create the container from the Sportarr template.
 | `PUID` / `PGID` | `99` / `100` | User and group the container runs as (nobody:users) |
 | `UMASK` | `022` | Permission mask for created files |
 | `TZ` | `UTC` | Timezone; keeps event air times and the calendar correct |
+| `Sportarr__Database__*` | sqlite | Optional PostgreSQL settings under "Show more settings": provider, host, port, name, username, password, or a full connection string. PostgreSQL is fresh-install only. Any `Sportarr__` variable can be read from a file via the `FILE__` prefix (Docker secrets) |
 
 ## Support
 
